@@ -1,41 +1,23 @@
 ﻿using CommunityToolkit.Maui.Alerts;
 using CommunityToolkit.Maui.Core;
 using employye;
-
-
+bool iscontinue =true;
+int overtime = 0 , numberofday =0;
 Employees employee;
-employee = new SimpleEmployee
+while (iscontinue)
 {
-    FirstName = "amir",
-    LastName = "naseh ",
-    Id = "1630414654",
-    PhoneNumber = "09195777354",
-    Ismariage = false,
-    
-
-
-};
-Console.WriteLine(employee.FullName);
-Console.WriteLine(employee.Id);
-Console.WriteLine(employee.PhoneNumber);
-Console.WriteLine(employee.Ismariage);
-Console.WriteLine($"the month slaery for employee {employee.FullName} is {employee.MonthlySalary(22, 6):c}");
-employee = new SimpleEmployee
-{
-    FirstName = "mmdali",
-    LastName = "naseh ",
-    Id = "1635539811",
-    PhoneNumber = "09335353290",
-    Ismariage = true,
-    
-
-
-};
-Console.WriteLine(employee.FullName);
-Console.WriteLine(employee.Id);
-Console.WriteLine(employee.PhoneNumber);
-Console.WriteLine(employee.Ismariage);
-Console.WriteLine($"the month slaery for employee {employee.FullName} is {employee.MonthlySalary(22, 6):c}");
+    Console.Clear();
+    int type = Discreaption.GetEmployeeType();
+    employee = EmployeeFactory.emfactory(type);
+    Discreaption.GetWorkData(out numberofday, out overtime);
+    Console.Clear();
+    Console.WriteLine("DO YOU WANA SEE EMPLOYEE DATA ");
+    if (Discreaption.GetYorN())
+        Discreaption.ShowDescreptin(employee,type);     
+    Console.WriteLine("do you wana add another emplioyee data");
+        iscontinue= Discreaption.GetYorN();
+}
+Environment.Exit(0);
 
 
 

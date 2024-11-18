@@ -130,7 +130,7 @@ namespace employye
 
     }
     public class CEOEmployee : Employees
-    {
+    {   
         private int employeerate = 3;
         private int workinghours = 10;
         public override double MonthlySalary(int NumberOfday, int OvertimeHourse)
