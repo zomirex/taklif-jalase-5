@@ -11,13 +11,14 @@ namespace employye
     {
         public static int GetEmployeeType()
         {
-            int employeetype = 0;
             Console.WriteLine("please enter \r\n1 for simple employee\r\n2 for manager employee\r\n3 for ceo employee");
             while(true)
             {
+                int employeetype = Convert.ToInt32(Discreaption.Getnumber("Employee type"));
 
                 if (employeetype == 1 || employeetype ==2 || employeetype == 3 )
                 {    
+                    Console.Clear();
                     return employeetype;
                 }
                 else 
