@@ -3,6 +3,8 @@ using CommunityToolkit.Maui.Core;
 using employye;
 bool iscontinue =true;
 int overtime = 0 , numberofday =0;
+
+
 Employees employee;
 while (iscontinue)
 {
@@ -19,5 +21,11 @@ while (iscontinue)
 }
 Environment.Exit(0);
 
-
+enum EmType
+{
+    simple,
+    manager,
+    ceo,
+    service
+}
 

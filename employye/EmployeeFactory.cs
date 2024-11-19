@@ -11,12 +11,12 @@ namespace employye
     {
         public static int GetEmployeeType()
         {
-            Console.WriteLine("please enter \r\n1 for simple employee\r\n2 for manager employee\r\n3 for ceo employee");
+            Console.WriteLine("please enter \r\n1 for simple employee\r\n2 for manager employee\r\n3 for ceo employee\r\n3 for service employee");
             while(true)
             {
                 int employeetype = Convert.ToInt32(Discreaption.Getnumber("Employee type"));
 
-                if (employeetype == 1 || employeetype ==2 || employeetype == 3 )
+                if (employeetype == 1 || employeetype ==2 || employeetype == 3 || employeetype == 4)
                 {    
                     Console.Clear();
                     return employeetype;
@@ -210,7 +210,7 @@ namespace employye
                             LastName = lastname,
                             PhoneNumber = phonenumber,
                             Id = id,
-                            Basalsalery = 10,
+                            Basalsalery = 15,
                             Ismariage = ismariage
                         };
                     }
@@ -229,7 +229,27 @@ namespace employye
                             LastName = lastname,
                             PhoneNumber = phonenumber,
                             Id = id,
-                            Basalsalery = 10,
+                            Basalsalery = 18,
+                            Ismariage = ismariage
+                        };
+                    }
+
+                case 4:
+                    {
+                        string firstname, lastname, phonenumber, id;
+                        firstname = Discreaption.Getname("firstname");
+                        lastname = Discreaption.Getname("lastname");
+                        phonenumber = Discreaption.Getnumber("phone number");
+                        id = Discreaption.Getnumber("id code");
+                        Console.WriteLine("are you mariaged??");
+                        bool ismariage = Discreaption.GetYorN();
+                        return new ServiceEmployee
+                        {
+                            FirstName = firstname,
+                            LastName = lastname,
+                            PhoneNumber = phonenumber,
+                            Id = id,
+                            Basalsalery = 12,
                             Ismariage = ismariage
                         };
                     }

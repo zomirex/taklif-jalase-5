@@ -11,6 +11,7 @@ namespace employye
 {
     public class Employees
     {
+
         protected int familysalery = 10;
         private int _Basalsalery =10  ;
         private string _Id ="1111111111";
@@ -94,11 +95,19 @@ namespace employye
         private int workinghours = 10;
         public override double MonthlySalary(int NumberOfday, int OvertimeHourse)
         {
+            if (NumberOfday >= 30 ) 
+                throw new NotImplementedException("thats impossible you cant work all the month");
             int mariage = 0;
             if (Ismariage==true)
                 mariage = 1;
             double salery = NumberOfday * workinghours *Basalsalery + OvertimeHourse * Basalsalery * employeerate +  mariage * familysalery ;
             return salery;
+        }
+        public override string ToString()
+        {
+            
+            return($"this is a simple employee \r\nthe employee rate is:{employeerate} \r\nthey need to work : {workinghours} hours in day\r\n ");
+
         }
     }
     public class ServiceEmployee : Employees
@@ -107,13 +116,20 @@ namespace employye
         private int workinghours = 12;
         public override double MonthlySalary(int NumberOfday, int OvertimeHourse)
         {
+            if (NumberOfday >= 30)
+                throw new NotImplementedException("thats impossible you cant work all the month");
             int mariage = 0;
             if (Ismariage == true)
                 mariage = 1;
             double salery = NumberOfday * workinghours * Basalsalery + OvertimeHourse * Basalsalery * employeerate + mariage * familysalery;
             return salery;
         }
+        public override string ToString()
+        {
 
+            return ($"this is a simple employee \r\nthe employee rate is:{employeerate} \r\nthey need to work : {workinghours} hours in day\r\n ");
+
+        }
     }
     public class ManagerEmployee : Employees
     {
@@ -121,13 +137,20 @@ namespace employye
         private int workinghours = 8;
         public override double MonthlySalary(int NumberOfday, int OvertimeHourse)
         {
+            if (NumberOfday >= 30)
+                throw new NotImplementedException("thats impossible you cant work all the month");
             int mariage = 0;
             if (Ismariage == true)
                 mariage = 1;
             double salery = NumberOfday * workinghours * Basalsalery + OvertimeHourse * Basalsalery * employeerate + mariage * familysalery;
             return salery;
         }
+        public override string ToString()
+        {
 
+            return ($"this is a simple employee \r\nthe employee rate is:{employeerate} \r\nthey need to work : {workinghours} hours in day\r\n ");
+
+        }
     }
     public class CEOEmployee : Employees
     {   
@@ -135,13 +158,20 @@ namespace employye
         private int workinghours = 10;
         public override double MonthlySalary(int NumberOfday, int OvertimeHourse)
         {
+            if (NumberOfday >= 30)
+                throw new NotImplementedException("thats impossible you cant work all the month");
             int mariage = 0;
             if (Ismariage == true)
                 mariage = 1;
             double salery = NumberOfday * workinghours * Basalsalery + OvertimeHourse * Basalsalery * employeerate + mariage * familysalery;
             return salery;
         }
+        public override string ToString()
+        {
 
+            return ($"this is a simple employee \r\nthe employee rate is:{employeerate} \r\nthey need to work : {workinghours} hours in day\r\n ");
+
+        }
     }
     public class NotificationService
     {
@@ -151,7 +181,7 @@ namespace employye
             // Default behavior: Just print the message
             Console.WriteLine("Base class toast: " + message);
         }
-    }
+    } // mikhastam baray toast notification be zanam
 
 
     
