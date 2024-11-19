@@ -168,7 +168,18 @@ namespace employye
     }
     public static class EmployeeFactory
     {
-        
+        public static Employees SetEmployee(int employeeId)
+        {
+            switch (employeeId)
+            {
+                case 1: return new SimpleEmployee();
+                case 2: return new ManagerEmployee();
+                case 3: return new CEOEmployee();
+                case 4: return new ServiceEmployee();
+                default:
+                    throw new NotImplementedException("not a right id");
+            }
+        }
         public static Employees emfactory (int emtype )
         {
             switch(emtype)

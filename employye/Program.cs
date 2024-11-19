@@ -6,6 +6,14 @@ int overtime = 0 , numberofday =0;
 
 
 Employees employee;
+for (int i = 1;i<5;i++)
+{
+    employee = EmployeeFactory.SetEmployee(i);
+    Console.WriteLine(employee.ToString());
+    
+}
+Console.WriteLine("if you wana continu and add employee press any key ");
+Console.ReadKey(true);
 while (iscontinue)
 {
     Console.Clear();
