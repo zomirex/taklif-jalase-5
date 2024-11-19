@@ -9,17 +9,18 @@ using System.Xml;
 
 namespace employye
 {
-    public class Employees
+    public abstract class Employees
     {
 
         protected int familysalery = 10;
-        private int _Basalsalery =10  ;
         private string _Id ="1111111111";
         private string _PhoneNumber="00000000000";
         private string _FirstName="name" ;
         private string _LastName="family";
         private bool _IsMariage = false;
-        public int Basalsalery { get =>_Basalsalery; set=>_Basalsalery=value; }
+        public abstract uint employeerate { get; }
+        public abstract uint Basalsalery { get; }
+        public abstract uint workinghours {get; }
         public string Id {
             get
             {
@@ -82,106 +83,89 @@ namespace employye
             init=> _PhoneNumber= value; 
         }
         public bool Ismariage { get=>_IsMariage; init=>_IsMariage = value; }
-        
-        public virtual double MonthlySalary (int NumberOfday, int OvertimeHourse  )
+
+        public virtual double MonthlySalary(int NumberOfday, int OvertimeHourse)
         {
-            throw new NotImplementedException();
+            return Convert.ToUInt32(Ismariage) * 100;
+        }
+        public abstract string Role();
+        public override string ToString()
+        {
+            return $"{FullName} : {Role()} and he/she work :{workinghours} ";
         }
     }
     public class SimpleEmployee : Employees
     {
-        
-        private int employeerate = 1;
-        private int workinghours = 10;
+        public override uint Basalsalery =>40;
+        public override uint employeerate => 2;
+        public override uint workinghours => 12;
         public override double MonthlySalary(int NumberOfday, int OvertimeHourse)
         {
             if (NumberOfday >= 30 ) 
                 throw new NotImplementedException("thats impossible you cant work all the month");
-            int mariage = 0;
-            if (Ismariage==true)
-                mariage = 1;
-            double salery = NumberOfday * workinghours *Basalsalery + OvertimeHourse * Basalsalery * employeerate +  mariage * familysalery ;
-            return salery;
-        }
-        public override string ToString()
-        {
             
-            return($"this is a simple employee \r\nthe employee rate is:{employeerate} \r\nthey need to work : {workinghours} hours in day\r\n ");
-
+            
+            
+            return base.MonthlySalary(NumberOfday ,OvertimeHourse) + OvertimeHourse * Basalsalery * employeerate ;
         }
+        
+        public override string Role() => "Simple Emploee: Task A, Task B";
+        
     }
     public class ServiceEmployee : Employees
     {
-        private int employeerate = 1;
-        private int workinghours = 12;
+        public override uint Basalsalery => 30;
+        public override uint employeerate => 1;
+        public override uint workinghours => 12;
         public override double MonthlySalary(int NumberOfday, int OvertimeHourse)
         {
             if (NumberOfday >= 30)
                 throw new NotImplementedException("thats impossible you cant work all the month");
-            int mariage = 0;
-            if (Ismariage == true)
-                mariage = 1;
-            double salery = NumberOfday * workinghours * Basalsalery + OvertimeHourse * Basalsalery * employeerate + mariage * familysalery;
-            return salery;
-        }
-        public override string ToString()
-        {
+            
 
-            return ($"this is a simple employee \r\nthe employee rate is:{employeerate} \r\nthey need to work : {workinghours} hours in day\r\n ");
 
+            return base.MonthlySalary(NumberOfday, OvertimeHourse) + OvertimeHourse * Basalsalery * employeerate  ;
         }
+        public override string Role() => "Service Emploee: Nezafat";
+        
+
     }
     public class ManagerEmployee : Employees
     {
-        private int employeerate = 2;
-        private int workinghours = 8;
+        public override uint Basalsalery => 60;
+        public override uint employeerate => 4;
+        public override uint workinghours => 10;
         public override double MonthlySalary(int NumberOfday, int OvertimeHourse)
         {
             if (NumberOfday >= 30)
                 throw new NotImplementedException("thats impossible you cant work all the month");
-            int mariage = 0;
-            if (Ismariage == true)
-                mariage = 1;
-            double salery = NumberOfday * workinghours * Basalsalery + OvertimeHourse * Basalsalery * employeerate + mariage * familysalery;
-            return salery;
-        }
-        public override string ToString()
-        {
+            
 
-            return ($"this is a simple employee \r\nthe employee rate is:{employeerate} \r\nthey need to work : {workinghours} hours in day\r\n ");
 
+            return base.MonthlySalary(NumberOfday, OvertimeHourse) + OvertimeHourse * Basalsalery * employeerate ;
         }
+        
+        public override string Role() => "Manager Emploee: Team Lead";
+
     }
     public class CEOEmployee : Employees
-    {   
-        private int employeerate = 3;
-        private int workinghours = 10;
+    {
+        public override uint Basalsalery => 100;
+        public override uint employeerate => 6;
+        public override uint workinghours => 8;
         public override double MonthlySalary(int NumberOfday, int OvertimeHourse)
         {
             if (NumberOfday >= 30)
                 throw new NotImplementedException("thats impossible you cant work all the month");
-            int mariage = 0;
-            if (Ismariage == true)
-                mariage = 1;
-            double salery = NumberOfday * workinghours * Basalsalery + OvertimeHourse * Basalsalery * employeerate + mariage * familysalery;
-            return salery;
-        }
-        public override string ToString()
-        {
+            
 
-            return ($"this is a simple employee \r\nthe employee rate is:{employeerate} \r\nthey need to work : {workinghours} hours in day\r\n ");
 
+            return base.MonthlySalary(NumberOfday, OvertimeHourse) + OvertimeHourse * Basalsalery * employeerate ;
         }
+        
+        public override string Role() => "CEO: Company Lead";
+
     }
-    public class NotificationService
-    {
-        // Virtual method for showing a basic toast
-        public virtual void Toast(string message)
-        {
-            // Default behavior: Just print the message
-            Console.WriteLine("Base class toast: " + message);
-        }
-    } // mikhastam baray toast notification be zanam
 
 
     

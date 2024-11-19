@@ -200,7 +200,6 @@ namespace employye
                             LastName = lastname,
                             PhoneNumber = phonenumber,
                             Id = id,
-                            Basalsalery = 10,
                             Ismariage = ismariage
                         };
                                        
@@ -221,7 +220,6 @@ namespace employye
                             LastName = lastname,
                             PhoneNumber = phonenumber,
                             Id = id,
-                            Basalsalery = 15,
                             Ismariage = ismariage
                         };
                     }
@@ -240,7 +238,6 @@ namespace employye
                             LastName = lastname,
                             PhoneNumber = phonenumber,
                             Id = id,
-                            Basalsalery = 18,
                             Ismariage = ismariage
                         };
                     }
@@ -260,7 +257,6 @@ namespace employye
                             LastName = lastname,
                             PhoneNumber = phonenumber,
                             Id = id,
-                            Basalsalery = 12,
                             Ismariage = ismariage
                         };
                     }
